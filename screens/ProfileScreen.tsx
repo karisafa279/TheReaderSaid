@@ -5,7 +5,7 @@ export default function ProfileScreen() {
     return (
         <View>
             <Text>
-                Profile screen!
+                Look how many books you have read in this year!
             </Text>
         </View>
     );

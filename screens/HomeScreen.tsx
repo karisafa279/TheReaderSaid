@@ -18,7 +18,12 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
             title="Sign Out" 
             style={styles.button} 
             onPress={() => signOut(auth)}/>
+            <Button 
+            title="Perfil" 
+            style={styles.button} 
+            onPress={() => navigation.navigate('Profile')}/>
         </View>
+        
         
     );
 }

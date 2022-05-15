@@ -1,36 +1,52 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { useAuthentication } from "../utilities/hooks/useAuthentication";
 import { Input, Button } from "react-native-elements";
 import { getAuth, signOut } from "firebase/auth";
+import { StackScreenProps } from "@react-navigation/stack";
+import Icon  from "react-native-vector-icons/FontAwesome";
 
 const auth = getAuth();
 
-export default function MyBookScreen() {
+const MyBookScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
     const { user } = useAuthentication();
 
     return (
         <View style={styles.container}>
-            <Text>Welcome {user?.email}</Text>
+            <Text style={styles.title}>Books you read:</Text>
+            <View style={{flexDirection: 'row'}}>
+                <Image
+                source={require('../images/HarryPotter1.jpg')}
+                style={{width: 200, height: 200, margin: 2}} />
+                <Image
+                source={require('../images/ELCodigoDaVinci.png')}
+                style={{width: 200, height: 200, margin: 2}} />
+                <Image
+                source={require('../images/ComerRezarAmar.jpg')}
+                style={{width: 200, height: 200, margin: 2}} />
+            </View>
+            <Text style={styles.title}>Books you are reading:</Text>
+            <View style={{flexDirection: 'row'}}>
+                <Image
+                source={require('../images/CronicasDeNarnia.jpg')}
+                style={{width: 200, height: 200, margin: 2}} />
+                <Image
+                source={require('../images/MasAllaDelInvierno.jpg')}
+                style={{width: 200, height: 200, margin: 2}} />
+                <Image
+                source={require('../images/IT.jpg')}
+                style={{width: 200, height: 200, margin: 2}} />
+            </View>
             <Button 
             title="Sign Out" 
             style={styles.button} 
             onPress={() => signOut(auth)}/>
-            <View>
-                <Button 
-                title="Home" 
-                style={styles.button}/>
-                <Button 
-                title="My Books" 
-                style={styles.button}/>
-                <Button 
-                title="Search" 
-                style={styles.button}/>
-                <Button 
-                title="Profile" 
-                style={styles.button}/>
-            </View>
+            <Button 
+            title="Book review" 
+            style={styles.button} 
+            onPress={() => navigation.navigate('Book review')}/>
         </View>
+        
         
     );
 }
@@ -45,4 +61,10 @@ const styles = StyleSheet.create({
     button:{
         marginTop: 5,
     },
+    title:{
+        fontSize: 20,
+        textAlign:'left',
+    }
 });
+
+export default MyBookScreen;

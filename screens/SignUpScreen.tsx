@@ -2,7 +2,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import Icon  from "react-native-vector-icons/FontAwesome";
-
 import { StackScreenProps } from "@react-navigation/stack";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Input, Button } from "react-native-elements";

@@ -5,7 +5,7 @@ export default function SearchScreen() {
     return (
         <View>
             <Text>
-                Search screen!
+                We recommend you these books!
             </Text>
         </View>
     );
